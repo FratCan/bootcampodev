@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/anasayfaFragment">
+
+    <fragment
+        android:id="@+id/kayitSayfaFragment"
+        android:name="com.example.odev7todoapp.ui.fragment.KayitSayfaFragment"
+        android:label="fragment_kayit_sayfa"
+        tools:layout="@layout/fragment_kayit_sayfa" />
+    <fragment
+        android:id="@+id/detaySayfaFragment"
+        android:name="com.example.odev7todoapp.ui.fragment.DetaySayfaFragment"
+        android:label="fragment_detay_sayfa"
+        tools:layout="@layout/fragment_detay_sayfa" >
+        <argument
+            android:name="todo"
+            app:argType="com.example.odev7todoapp.data.entity.ToDo" />
+    </fragment>
+    <fragment
+        android:id="@+id/anasayfaFragment"
+        android:name="com.example.odev7todoapp.ui.fragment.AnasayfaFragment"
+        android:label="fragment_anasayfa"
+        tools:layout="@layout/fragment_anasayfa" >
+        <action
+            android:id="@+id/anasayfatodetaysayfa"
+            app:destination="@id/detaySayfaFragment"
+            app:popUpTo="@id/anasayfaFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/anasayfatokayitsayfa"
+            app:destination="@id/kayitSayfaFragment"
+            app:popUpTo="@id/anasayfaFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
